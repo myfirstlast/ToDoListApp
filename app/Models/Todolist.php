@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Todolist extends Model
 {
     use HasFactory;
-    // public static function viewall() {
-    //     return ['item 1', 'item 2', 'item 3', 'item 4', 'item 5', 'item 6', 'item 7'];
-    // }
+    protected $fillable = ['content'];
+    
+    public function scopeFilter($query, array $filters) {
+        if($filters['search'] ?? false){
+            // echo 'false echo';
+            $query->where('content', 'like', '%' . request('search') . '%')->orWhere('id', 'like', '%' . request('search') . '%')->orWhere('created_at', 'like', '%' . request('search') . '%');
+        }
+    }
+
 }

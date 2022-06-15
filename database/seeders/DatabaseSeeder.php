@@ -22,5 +22,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        Todolist::create([
+            'content' => 'programming'
+        ]);
     }
 }

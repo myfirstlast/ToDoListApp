@@ -10,7 +10,7 @@
             <div class="row justify-content-center mb-4">
               <div class="col-md-8 text-center">
                 <h1>About Us</h1>
-                <p class="lead mb-5">The is a To Do List web application</p>
+                <p class="lead mb-5">This is a To Do List web application</p>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus provident quaerat nisi laboriosam inventore earum. Voluptatum molestiae praesentium nulla illum dolore numquam. Impedit, eligendi nam atque qui ipsam vel tempore!</p>
               </div>
             </div>

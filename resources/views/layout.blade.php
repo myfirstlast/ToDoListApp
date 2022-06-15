@@ -54,6 +54,7 @@
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li class="active"><a href="{{url('index')}}">Home</a></li>
+                <li><a href="{{url('create')}}">Create</a></li>
                 <li><a href="{{url('viewall')}}">View all</a></li>
                 <li class="has-children">
                   <ul class="dropdown">
