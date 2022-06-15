@@ -17,8 +17,20 @@ use App\Http\Controllers\todolistController;
 Route::get('/', [todolistController::class, 'index']);
 Route::get('/index', [todolistController::class, 'index']);
 Route::get('/viewall', [todolistController::class, 'viewall']);
+
+// Show create form
 Route::get('/create', [todolistController::class, 'create']);
+// Store a task
 Route::post('/', [todolistController::class, 'store']);
+
+// Show the edit form
+Route::get('/{task}/edit', [todolistController::class, 'edit']);
+// Update the task
+Route::put('/{task}', [todolistController::class, 'update']);
+
+// Delete task
+Route::delete('/{task}', [todolistController::class, 'destroy']);
+
 
 Route::get('/about', [todolistController::class, 'about']);
 Route::get('/contact', [todolistController::class, 'contact']);

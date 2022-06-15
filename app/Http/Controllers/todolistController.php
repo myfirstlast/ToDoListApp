@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Todolist;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Session;
 
 class todolistController extends Controller
 {
@@ -16,7 +17,7 @@ class todolistController extends Controller
 
     public function viewall() {
         return view('viewall', [
-            'todolist' => Todolist::filter(request(['search']))->get()
+            'todolist' => Todolist::filter(request(['search']))->simplePaginate(5)
         ]);
     }
 
@@ -31,7 +32,26 @@ class todolistController extends Controller
             'content' => ['required', Rule::unique('todolists', 'content')]
         ]);
         Todolist::create($formFields);
+        Session::flash('message', 'Task created successfully!');
         return redirect('/create');
+    }
+
+    public function edit (Todolist $task) {
+        return view('edit', ['task' => $task]);
+    }
+
+    public function update (Request $request, Todolist $task) {
+        $formFields = $request->validate([
+            'content' => ['required']
+        ]);
+
+        $task->update($formFields);
+        return redirect('/viewall')->with('message', 'Task updated successfully!');
+    }
+
+    public function destroy (Todolist $task) {
+        $task->delete();
+        return redirect('viewall');
     }
 
     public function about () {

@@ -4,7 +4,7 @@
 @csrf
 <form action="/" class="input-group card-body shadow-sm containerw-25 mt-5" method="POST" autocomplete="off">
     @csrf    
-    <input type="text" name="content" class="form-control" placeholder="Add your new todo task here">
+    <input type="text" name="content" class="form-control" placeholder="Add your new todo task here" value={{old('content')}}>
     <button type="submit" class="btn btn-dark btn-sm"><i class="fas fa-plus"></i></button>
 </form>
 @error('content')

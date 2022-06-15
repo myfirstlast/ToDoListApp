@@ -11,38 +11,47 @@
         <button type="submit" class="btn btn-dark btn-sm"><i class="fas fa-search"></i></button>
       </form>
 
-      <div class="col-md-3"><h2>ID</h2></div>
-      <div class="col-md-3"><h2>To do</h2></div>
-      <div class="col-md-3"><h2>Created at</h2></div>
-      <div class="col-md-3"><h2>Updated at</h2></div>
+      <div class="col-md-2"><h2>ID</h2></div>
+      <div class="col-md-2"><h2>To do</h2></div>
+      <div class="col-md-2"><h2>Created at</h2></div>
+      <div class="col-md-2"><h2>Updated at</h2></div>
+      <div class="col-md-2"><h2>Edit</h2></div>
+      <div class="col-md-2"><h2>Delete</h2></div>
 
       @foreach ($todolist as $item)
+      @csrf
 
-        <div class="col-md-3">
+        <div class="col-md-2">
           <p>{{$item->id}}</p>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-2">
           <p>{{$item->content}}</p>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-2">
           <p>{{$item->created_at}}</p>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-2">
           <p>{{$item->updated_at}}</p>
         </div>
+
+        {{-- @method('edit') --}}
+        <a href="/{{$item->id}}/edit" type="submit" class="btn btn-link btn-sm float-end col-md-2">
+            <i class="fas fa-edit"></i>
+        </a>
+
+        <form action="/{{$item->id}}" method="POST" class="btn btn-link btn-sm float-end col-md-2">
+          @csrf
+          @method('DELETE')
+          <button class="text-red-500"><i class="fas fa-trash"></i>Delete</button>
+        </form>
         
       @endforeach
-
-      @if(count($todolist))
-        <div class="card-footer"></div>
-        You have {{ count($todolist) }} pending tasks<br>
-      @else
-        <h6>You don't have any pending tasks</h6><br>
-      @endif
-
+      <div class="mt-6 p-4">
+        {{$todolist->links()}}
+      </div>
     </div>
   </div>
 </div>  

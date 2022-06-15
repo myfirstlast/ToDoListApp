@@ -9,6 +9,13 @@
                     <div class="col-md-8 text-center">
                         <h1>You are using the best To Do List application</h1>
                         <p class="lead mb-5">Always remember your tasks</p>
+                        <div class="text-white">
+                            @if(count($todolist))
+                                <h6>You have {{ count($todolist) }} pending tasks</h6><br>
+                            @else
+                                <h6>You don't have any pending tasks</h6><br>
+                            @endif
+                        </div>
                         <div><a href="/create" class="btn btn-primary btn-md">Create</a></div>
                     </div>
                 </div>

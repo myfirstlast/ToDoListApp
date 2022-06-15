@@ -117,6 +117,8 @@
               </div>
         </div>      
       </footer>
+                     
+      
     </div>
   
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -131,6 +133,7 @@
     <script src="js/bootstrap-datepicker.min.js"></script>
     <script src="js/aos.js"></script>
   
+
     <script src="js/typed.js"></script>
               <script>
               var typed = new Typed('.typed-words', {
@@ -142,9 +145,9 @@
               loop: true,
               showCursor: true
               });
-              </script>
+    </script>
   
     <script src="js/main.js"></script>
-      
+
     </body>
   </html>
